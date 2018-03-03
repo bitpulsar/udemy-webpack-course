@@ -12,7 +12,11 @@ const webpackDevMiddleware = require("webpack-dev-middleware")(
   config.devServer
 )
 
+const webpackHotMiddleware = require("webpack-hot-middleware")(compiler);
+
 server.use(webpackDevMiddleware);
+
+server.use(webpackHotMiddleware);
 
 const staticMiddleware = express.static("dist");
 
